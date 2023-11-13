@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+public class Test {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int capacita=0, scelta;
@@ -23,6 +23,7 @@ public class Main {
                 miaCollezione = new Collezione(nome, capacita, luogo);
             } catch (Exception e) {
                 System.out.print(e.getMessage());
+                System.out.print("Inserisci la capacità della collezione: ");
                 capacita=input.nextInt();
                 flag=false;
             }
@@ -54,17 +55,20 @@ public class Main {
                     String titolo = input.next();
                     System.out.print("Inserisci l'artista dell'opera: ");
                     String artista = input.next();
-                    System.out.print("Tipo di opera (1. Quadro, 2. Scultura): ");
-                    int tipoOpera = input.nextInt();
+                    int tipoOpera;
+                    do {
+                        System.out.print("Tipo di opera (1. Quadro, 2. Scultura): ");
+                        tipoOpera = input.nextInt();
+                    }while(tipoOpera!=1 && tipoOpera!=2);
 
                     if (tipoOpera == 1) {
-
                         System.out.print("Inserisci altezza del quadro: ");
                         double altezzaQuadro = input.nextDouble();
                         System.out.print("Inserisci larghezza del quadro: ");
                         double larghezzaQuadro = input.nextDouble();
                         try {
                             nuovaOpera = new Quadro(titolo, artista, altezzaQuadro, larghezzaQuadro);
+                            miaCollezione.inserisciOpera(nuovaOpera);
                             System.out.println("Quadro inserito con successo!");
                         }catch (Exception e){
                             System.out.print(e.getMessage());
@@ -79,12 +83,13 @@ public class Main {
                         double profonditaScultura = input.nextDouble();
                         try {
                             nuovaOpera = new Scultura(titolo, artista, altezzaScultura, larghezzaScultura, profonditaScultura);
+                            miaCollezione.inserisciOpera(nuovaOpera);
                             System.out.println("Scultura inserita con successo!");
                         }catch (Exception e){
                             System.out.print(e.getMessage());
                         }
                     }
-                    miaCollezione.inserisciOpera(nuovaOpera);
+
                     break;
 
                 case 2:
@@ -98,7 +103,7 @@ public class Main {
                     String artistaOpera = input.next();
 
                     try{
-                        miaCollezione.stampaIngombroOpera(titoloOpera, artistaOpera);
+                        System.out.print("Ingombro opera: "+ miaCollezione.stampaIngombroOpera(titoloOpera, artistaOpera));
                     }catch (Exception e){
                         System.out.print(e.getMessage());
                     }

@@ -14,15 +14,18 @@ class Collezione {
         dimLogica=0;
     }
 
-    public void inserisciOpera(OperaDarte opera) {
+    public void inserisciOpera(OperaDarte opera) throws Exception{
+        if (dimLogica==opere.length){
+            throw new Exception("Collezione piena\n");
+        }
         opere[dimLogica]=opera;
         dimLogica++;
     }
 
     public String stampaCollezione() {
-        String ret= "Collezione: " + nome;
+        String ret= "Collezione: " + nome + "\n";
         for (int i=0; i<dimLogica; i++) {
-            ret+="\n"+opere[i].titolo + " di " + opere[i].artista;
+            ret+=opere[i].titolo + " di " + opere[i].artista+"\n";
         }
 
         return ret;
