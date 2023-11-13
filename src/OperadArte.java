@@ -9,4 +9,11 @@ abstract class OperaDarte {
 
     public abstract double calcolaIngombro();
 
+    @Override
+    public String toString() {
+        return "OperaDarte{" +
+                "titolo='" + titolo + '\'' +
+                ", artista='" + artista + '\'' +
+                '}';
+    }
 }

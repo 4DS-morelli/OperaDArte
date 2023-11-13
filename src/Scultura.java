@@ -23,4 +23,26 @@ class Scultura extends OperaDarte {
     public double calcolaIngombro() {
         return altezza * larghezza * profondita;
     }
+
+    public double getAltezza() {
+        return altezza;
+    }
+
+    public double getLarghezza() {
+        return larghezza;
+    }
+
+    public double getProfondita() {
+        return profondita;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                "Scultura{" +
+                "altezza=" + altezza +
+                ", larghezza=" + larghezza +
+                ", profondita=" + profondita +
+                '}';
+    }
 }

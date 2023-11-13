@@ -18,4 +18,21 @@ class Quadro extends OperaDarte {
     public double calcolaIngombro() {
         return altezza * larghezza;
     }
+
+    public double getAltezza() {
+        return altezza;
+    }
+
+    public double getLarghezza() {
+        return larghezza;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                "Quadro{" +
+                "altezza=" + altezza +
+                ", larghezza=" + larghezza +
+                '}';
+    }
 }

@@ -8,10 +8,10 @@ class Collezione {
         if (capacita<=0){
             throw new Exception("Inserire la capacità della collezione maggiore di 0\n");
         }
-        this.nome = nome;
-        this.opere = new OperaDarte[capacita];
-        this.luogo=luogo;
-        dimLogica=0;
+        this.nome= nome;
+        this.opere= new OperaDarte[capacita];
+        this.luogo= luogo;
+        dimLogica= 0;
     }
 
     public void inserisciOpera(OperaDarte opera) throws Exception{
@@ -47,5 +47,21 @@ class Collezione {
             }
         }
         return ing;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getLuogo() {
+        return luogo;
+    }
+
+    public void setLuogo(String luogo) {
+        this.luogo = luogo;
     }
 }
