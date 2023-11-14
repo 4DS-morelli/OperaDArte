@@ -31,19 +31,13 @@ class Collezione {
         return ret;
     }
 
-    public double stampaIngombroOpera(String titoloOpera, String artistaOpera) throws Exception {
-        int count=0;
-        double ing=0;
+    public String stampaIngombroOpera(OperaDarte op) throws Exception {
+        String ing="";
         for (int i = 0; i < dimLogica; i++) {
-            if (opere[i].titolo.equals(titoloOpera)){
-                if (opere[i].artista.equals(artistaOpera)) {
-                    count = 1;
-                    ing = opere[i].calcolaIngombro();
-                }else{
-                    throw new Exception("Autore opera non trovato\n");
-                }
+            if (opere[i].equals(op)){
+                ing += opere[i].calcolaIngombro();
             }else{
-                throw new Exception("Titolo dell'opera non trovato\n");
+                throw new Exception("Opera non trovata\n");
             }
         }
         return ing;
